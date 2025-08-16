@@ -1,0 +1,11 @@
+/*
+ * Cascading style sheet for the paragraph tag, p.
+ * If you do this in HTML :
+ * <p class="center">
+ * Then you get these settings.
+ */
+
+
+p.center {
+ text-align: center;
+}

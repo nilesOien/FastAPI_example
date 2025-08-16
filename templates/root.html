@@ -1,0 +1,51 @@
+<!--
+    HTML for the general guide served out at the root level.
+    Many of the comments in petStore.html about Jinja templating
+    apply here too.
+-->
+<!DOCTYPE html>
+<title>FastAPI Example</title>
+<html lang="en">
+ <body>
+ <link href="{{ url_for('static', path='font.css') }}" rel="stylesheet">
+  <h2>New here?</h2>
+
+  <P>
+  This is an example of how some technologies can work together, namely :
+  <ul>
+   <li> Python FastAPI running on a server, providing endpoints
+        that send JSON formatted information (see FastAPI_example.py)
+   <li> The uvicorn server sending to the client (see the startServer.sh script)
+   <li> Jinja doing template substitutions as HTML is served out by uvicorn
+        (see the template HTML files in the templates directory)
+   <li> javaScript running on the client, interacting with the user and
+        getting data from FastAPI endpoints as required (see the js directory)
+   <li> Cascading style sheets (CSS) controlling some aspects of the HTML appearance
+        (see the static directory)
+   <li> The sqlAlchemy python object relational manager (ORM)
+  </ul>
+  </p>
+
+  <P>
+  <B>Main Page :</b> The main page is <A HREF="/thePetStore">here</a><br><br>
+  <B>Documentation : </b>Click <A HREF="/docs">here</a> to see the FastAPI documentation or
+   <A HREF="/redoc">here</a> to see the redoc documentation. These are served out automatically
+   by the FastAPI system, see FastAPI_example.py
+  </p>
+
+  <P>
+  <B>End points :</b>Click <A HREF="/listAnimalTypes">here</a> to see the
+  JSON output of
+  the API that serves out
+  the types of pets and the numbers of each type. This supports
+  the dropdown menu for pet type on the web page.<br><br>
+
+  Click <A HREF="/queryAnimals?minCost=10&maxCost=50&desiredType=Dog">here</a>
+  to see the pet selection API
+  selecting dogs with cost between 10 and 50. This supports
+  displaying the pets selected. You may want to
+  activate a pretty-print option in your browser, if available, to see
+  output JSON for both end points.
+  </p>
+ </body>
+</html>

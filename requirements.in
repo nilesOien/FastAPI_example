@@ -1,0 +1,9 @@
+sqlalchemy
+sqlalchemy-utils
+fastapi
+pydantic
+uvicorn
+email-validator
+jinja2
+httpx
+pytest

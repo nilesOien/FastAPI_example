@@ -1,0 +1,10 @@
+__pycache__
+.venv
+pythonEnv/bin
+pythonEnv/include
+pythonEnv/lib
+pythonEnv/lib64
+pythonEnv/pyvenv.cfg
+database/petdb
+uv.lock
+.python-version

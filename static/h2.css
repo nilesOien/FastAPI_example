@@ -1,0 +1,10 @@
+/*
+ * Cascading style sheet for the h2 tag.
+ * If you do this in HTML :
+ * <h2 class="center">
+ * Then you get these settings.
+ */
+
+h2.center {
+ text-align: center;
+}

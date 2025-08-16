@@ -1,0 +1,75 @@
+<!--
+	Main page for the pet store. Gets processed by Jinja
+	which does substitutions as it gets served out.
+-->
+<!DOCTYPE html>
+<title>Pet Store</title>
+<html lang="en">
+ <body>
+
+  <!-- Reference the cascading style sheets in the static directory.
+       Jinja will substitute the URL for the static directory for font.css for :
+       {{ url_for('static', path='font.css') }}
+       So that becomes something like :
+       http://127.0.0.1:8000/static/font.css
+       by the time it gets to the client. -->
+  <link href="{{ url_for('static', path='font.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='h2.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='para.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', path='table.css') }}" rel="stylesheet">
+
+  <!-- Similarly, serve out the javaScript -->
+  <script src="{{ url_for('js', path='populateSelector.js') }}"></script>
+  <script src="{{ url_for('js', path='populateDisplayPara.js') }}"></script>
+  <script src="{{ url_for('js', path='selectPet.js') }}"></script>
+  <script src="{{ url_for('js', path='clearSelected.js') }}"></script>
+
+  <!-- Pass the base URL for images as a global javaScript variable. -->
+  <script>
+   let imageURL = "{{ url_for('images', path='') }}"
+  </script>
+
+  <!-- Actual HTML content of the page. A lot gets filled out by javaScript. -->
+  <h2 class="center">Pet store</h2>
+
+  <P class="center"><A HREF="/">Return</a> to root directory.</p> 
+
+  <P class="center" id="selectorPara">
+   <label for="petTypeSelector">Pet type : </label>
+    <select id="petTypeSelector" name="petType">
+     <option value="">Loading...</option>
+    </select>
+    <label for="minCost">Minimum cost : </label>
+    <input maxlength="5" size="5" type="text" id="minCost" name="minCost">
+    <label for="maxCost">Maximum cost : </label>
+    <input maxlength="5" size="5" type="text" id="maxCost" name="maxCost">
+    <input type="button" value="Apply" onClick="populateDisplayPara();">
+
+  </p>
+
+  <HR>
+
+  <P class="center" id="countPara">
+  </p>
+
+  <P class="center" id="displayPara">
+   <table class="petTableClass" id="petTable">
+    <tr>
+     <td><B>Loading...</b></td>
+    </tr>
+   </table>
+  </p>
+
+
+  <P class="center" id="selectedPara">
+  </p>
+
+ <!-- After the page loads, call the javaScript populateSelector function. -->
+ <script>
+  window.onload = function() {
+   populateSelector();
+   return;
+  };
+ </script>
+ </body>
+</html>
