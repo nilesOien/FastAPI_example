@@ -277,13 +277,13 @@ But we are not doing that here.
 
 In any event, we can now set up the database 
 as discussed in section 2.0 with the
-uv version of makeBD.sh which is named uv_makeBD.sh :
+uv version of makeDB.sh which is named uv_makeDB.sh :
 ```
 $ cd database
-$ ./uv_makeBD.sh
+$ ./uv_makeDB.sh
 $ cd ..
 ```
-The uv_makeBD.sh script just does this :
+The uv_makeDB.sh script just does this :
 ```
 $ uv run makeDB.py
 ```
@@ -336,7 +336,7 @@ cd FastAPI_example/
 uv init --name FastAPI_example --description "An example of FastAPI" --no-readme .
 uv add -r requirements.in
 cd database/
-./uv_makeBD.sh 
+./uv_makeDB.sh 
 cd ../
 ./uv_runTests.sh 
 ./uv_startServer.sh 
