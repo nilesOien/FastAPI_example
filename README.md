@@ -20,11 +20,11 @@ mode to see the data moving between client and server.
 ## Section 1.0 Set up - Python virtual environment
 
 **NOTE** : You may want to consider following the steps in section 6.0
-to use the **uv** package manager rather than following
+and 7.0 to use the **uv** package manager rather than following
 the steps in this section, which use the **pip** package manager with a
 virtual environment
-rather than uv. If you're considering that, then read both sections 1.0
-and 6.0 first.
+rather than uv. If you're considering that, then read sections 1.0, 6.0
+and 7.0 first.
 
 To use a pip/virtual environment,
 first set up the python virtual environment in the pythonEnv directory
