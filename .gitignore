@@ -8,3 +8,5 @@ pythonEnv/pyvenv.cfg
 database/petdb
 uv.lock
 .python-version
+main.py
+pyproject.toml

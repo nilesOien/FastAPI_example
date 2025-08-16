@@ -312,3 +312,46 @@ INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 If uv is used, then the pythonEnv/ directory becomes redundant, and the steps
 in section 1.0 should **not** be taken.
 
+## 7.0 Quickstart with uv
+
+This is how to get things going quickly under the uv package builder.
+This section is basicall a rapid-fire version of section 6.0.
+
+First, if you don't have uv installed, install it and
+source the file that is needed after install for uv to be in your path :
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.local/bin/env
+```
+
+Then do the following to :
+1. Initalize the uv project
+2. Add the requirements (and marvel at how fast
+the Rust based uv system sets up the environment with those requirements)
+3. Build the database
+4. Run the unit tests in pytest
+5. Start the server
+```
+cd FastAPI_example/
+uv init --name FastAPI_example --description "An example of FastAPI" --no-readme .
+uv add -r requirements.in
+cd database/
+./uv_makeBD.sh 
+cd ../
+./uv_runTests.sh 
+./uv_startServer.sh 
+```
+
+You should see something like this :
+```
+$ ./uv_startServer.sh 
+INFO:     Started server process [2805]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+
+```
+At which point you can point a browser at 
+[http://127.0.0.1:8000](http://127.0.0.1:8000 "The main page")
+and turn on debugging in the browser and watch the JSON messages
+fly back and forth between the client and the server.
