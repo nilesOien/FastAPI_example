@@ -315,7 +315,7 @@ in section 1.0 should **not** be taken.
 ## 7.0 Quickstart with uv
 
 This is how to get things going quickly under the uv package builder.
-This section is basicall a rapid-fire version of section 6.0.
+This section is basically a rapid-fire version of section 6.0.
 
 First, if you don't have uv installed, install it and
 source the file that is needed after install for uv to be in your path :
