@@ -104,7 +104,7 @@ INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 ```
 
-## Section 4.0 Running the server
+## Section 4.0 Running the demo
 
 Point a browser at
 [http://127.0.0.1:8000](http://127.0.0.1:8000 "The main page")
