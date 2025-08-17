@@ -105,6 +105,7 @@ try:
 except Exception as e:
     session.rollback() # Rollback on error
     print(f"Error inserting data : {e}")
+    ok=False
 
 finally:
     session.close()
