@@ -355,3 +355,13 @@ At which point you can point a browser at
 [http://127.0.0.1:8000](http://127.0.0.1:8000 "The main page")
 and turn on debugging in the browser and watch the JSON messages
 fly back and forth between the client and the server.
+
+## 8.0 Clients in other languages
+
+There are example clients in python (examplePythonClient.py) and
+R (exampleClient.R) just to show that a client can be in any
+language that can perpetrate HTTP requests (most modern languages can).
+
+The R client gets the pets by category data and makes the image pets.png
+![Pets by category image](pets.png "Pets by category")
+
