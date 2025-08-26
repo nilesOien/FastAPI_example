@@ -4,7 +4,7 @@
 
 source pythonEnv/bin/activate
 
-pytest
+pytest -v
 
 exit 0
 
