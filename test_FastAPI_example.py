@@ -70,6 +70,11 @@ def test_queryAnimals():
 # not affected by testing. Constant JSON should be returned.
 def test_adjustStock():
     response=client.post("/adjustStock", json={"adjustment":0, "animalBreed":"Burmese", "animalType":"Cat"})
+    assert response.status_code == status.HTTP_200_OK
     assert response.json() == { 'status': 'Quantity is zero, there is nothing to do.' }
 
-
+# Test on a stock adjustment to a non-existant pet.
+def test_noSuchPet():
+    response=client.post("/adjustStock", json={"adjustment":1, "animalBreed":"Horned", "animalType":"Elephant"})
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json() == { 'status': 'Operation cannot proceed, that type of pet not in database' }
