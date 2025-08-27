@@ -309,7 +309,7 @@ async def adjust_stock(adjust:adjustClass, db: Session = Depends(get_db)):
     query_animal = query_animal.first() # Note : first() not all() because there is only one.
 
     if query_animal is None:
-        return { 'status': '  Operation cannot proceed, that type of pet not in database' }
+        return { 'status': 'Operation cannot proceed, that type of pet not in database' }
 
     # Read the existing number in stock from the DB.
     numInDB = query_animal.numInStock
