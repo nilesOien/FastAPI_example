@@ -11,7 +11,8 @@
 # security concerns, so to install it one must link
 # it into place like so :
 #
-# $ ln -sf pre-push-hook.sh .git/hooks/pre-push
+# $ cd .git/hooks/
+# $ ln -sf ../../pre-push-hook.sh pre-push
 
 echo
 echo Git push `date +"%Y/%m/%d %H:%M:%S %Z"` : Attempting to run git pre-push hook
