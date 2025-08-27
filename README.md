@@ -128,19 +128,33 @@ $
 You can now run the tests in the file test_FastAPI_example.py
 by running the runTests.sh script :
 ```
-$ ./runTests.sh
-============================= test session starts ==============================
-platform darwin -- Python 3.9.6, pytest-8.4.1, pluggy-1.6.0
-rootdir: /Users/noien/FastAPI_example
+$ ./runTests.sh 
+=============================== test session starts ================================
+platform linux -- Python 3.9.21, pytest-8.4.1, pluggy-1.6.0 -- /home/noien/gitWorkflow/FastAPI_example/pythonEnv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/noien/gitWorkflow/FastAPI_example
 plugins: anyio-4.10.0
-collected 3 items                                                                                                      
+collected 4 items                                                                  
 
-test_FastAPI_example.py ...                                       [100%]
+test_FastAPI_example.py::test_listAnimalTypes PASSED                         [ 25%]
+test_FastAPI_example.py::test_queryAnimals PASSED                            [ 50%]
+test_FastAPI_example.py::test_adjustStock PASSED                             [ 75%]
+test_FastAPI_example.py::test_noSuchPet PASSED                               [100%]
 
-============================== 3 passed in 1.39s ===============================
+================================ 4 passed in 0.49s =================================
 ```
 The tests themselves are documented in test_FastAPI_example.py
 
+These tests can be linked to git so that the tests must
+be passed to allow a git push, see the file pre-push-hook.sh
+
+Due to security concerns, such hooks
+cannot be checked in in situ as part of the repo. They must be
+installed by hand like so :
+
+```
+$ ln -sf pre-push-hook.sh .git/hooks/pre-push
+```
 
 ## Section 6.0 Using uv instead of pip and virtualenv
 
