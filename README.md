@@ -153,7 +153,8 @@ cannot be checked in in situ as part of the repo. They must be
 installed by hand like so :
 
 ```
-$ ln -sf pre-push-hook.sh .git/hooks/pre-push
+$ cd .git/hooks/
+$ ln -sf ../../pre-push-hook.sh pre-push
 ```
 
 ## Section 6.0 Using uv instead of pip and virtualenv
