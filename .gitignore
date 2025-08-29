@@ -1,3 +1,5 @@
+main.py
+pyproject.toml
 __pycache__
 .venv
 pythonEnv/bin
