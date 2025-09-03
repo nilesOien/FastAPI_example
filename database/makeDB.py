@@ -10,11 +10,10 @@
 # Demonstration of a simple use of relating to a database 
 # with sqlalchemy.
 
-from sqlalchemy import create_engine, UniqueConstraint, Table, Column, String, Float, Integer
+from sqlalchemy import create_engine, UniqueConstraint, Column, String, Float, Integer
 from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy.orm import declarative_base, sessionmaker
 import json
-import pprint
 import os
 
 # Make a table, the column names of which line
@@ -84,8 +83,8 @@ for line in petLines :
 # Say something and exit if the formatting is wrong.
 try :
     x = json.loads(petsString)
-except :
-    print("File pets.json formatting problem")
+except Exception as e :
+    print(f"File pets.json formatting problem : {type(e)} : {e}")
     quit()
 
 print(f"Found {len(x['petList'])} pets in file pets.json")

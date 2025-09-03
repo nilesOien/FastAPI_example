@@ -7,3 +7,4 @@ email-validator
 jinja2
 httpx
 pytest
+ruff

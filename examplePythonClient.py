@@ -7,8 +7,6 @@
 # Also had to have the FastAPI_example server going at
 # http://127.0.0.1:8000 of course.
 
-import os, sys, json
-import urllib.request, urllib.parse
 import requests
 
 # Get the pet type from the user, have them

@@ -86,7 +86,7 @@ petStore.mount("/images", StaticFiles(directory="images"), name="images")
 
 # Connect to the database. There are other connection URL formats for
 # other databases (postgres, mysql etc).
-DATABASE_URL = "sqlite:///database/petdb";
+DATABASE_URL = "sqlite:///database/petdb"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
@@ -101,7 +101,7 @@ Base = declarative_base()
 #   __table_args__ = {'schema': 'employee'}
 #
 class Animal(Base):
-    __tablename__ = "pets";
+    __tablename__ = "pets"
     animalType = Column('animalType',  String, primary_key=True)
     animalBreed = Column('animalBreed', String, primary_key=True)
     cost = Column('cost', Float)
