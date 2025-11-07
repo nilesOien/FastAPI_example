@@ -18,6 +18,9 @@ from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
+# Needed to handle the DotEnv file that has the database URL.
+from dotenv import load_dotenv
+
 # Needed List to return multiple results
 from typing import List
 import os
@@ -27,6 +30,18 @@ if not os.path.exists("database/petdb"):
     print("The database was not found")
     print("cd into the database/ directory")
     print("and run makeDB.sh")
+    quit()
+
+# Load the enviroment file. Usually the file is named
+# .env which is the default, and so it can be loaded with :
+# load_dotenv()
+# But because for this demo the environment file is DotEnv we use :
+# load_dotenv("DotEnv")
+load_dotenv("DotEnv")
+dbURL = os.getenv("DATABASE_URL")
+# Check that it went OK.
+if dbURL is None :
+    print("DATABASE_URL not in environment file DotEnv")
     quit()
 
 # Set up tags that appear in the documentation pages that FastAPI generates.
@@ -86,8 +101,9 @@ petStore.mount("/images", StaticFiles(directory="images"), name="images")
 
 # Connect to the database. There are other connection URL formats for
 # other databases (postgres, mysql etc).
-DATABASE_URL = "sqlite:///database/petdb"
-engine = create_engine(DATABASE_URL)
+# We got dbURL from the environment file DotEnv, see code above
+# that calls load_dotenv().
+engine = create_engine(dbURL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 

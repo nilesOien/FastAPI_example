@@ -62,7 +62,7 @@ Then install the python modules :
 ```
 (pythonEnv) $ pip install sqlalchemy sqlalchemy-utils
 (pythonEnv) $ pip install fastapi pydantic uvicorn
-(pythonEnv) $ pip install email-validator jinja2
+(pythonEnv) $ pip install email-validator jinja2 python-dotenv
 ```
 
 You can now leave the python virtual environment, it
@@ -204,7 +204,7 @@ name and a description, and telling
 it not to generate a README.md file since in this case
 we already have one : 
 ```
-$ uv init --name FastAPI_example --description "An example of FastAPI" --no-readme .
+$ uv init --name FastAPI_example --description "An example of FastAPI" --bare .
 ```
 This will write a file named pyproject.toml :
 ```
@@ -348,7 +348,7 @@ the Rust based uv system sets up the environment with those requirements)
 5. Start the server
 ```
 cd FastAPI_example/
-uv init --name FastAPI_example --description "An example of FastAPI" --no-readme .
+uv init --name FastAPI_example --description "An example of FastAPI" --bare .
 uv add -r requirements.in
 cd database/
 ./uv_makeDB.sh 

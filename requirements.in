@@ -8,3 +8,4 @@ jinja2
 httpx
 pytest
 ruff
+python-dotenv

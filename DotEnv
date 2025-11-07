@@ -1,0 +1,20 @@
+# Usually this file is not checked in to git.
+# Also, usually this file is named ".env" rather
+# than "DotEnv" (which makes it a hidden file).
+#
+# Generally things like passwords to databases
+# are put in here (our database URL does not
+# have a password). That's why the .env file is
+# hidden, and why it isn't checked into a git repo
+# (at least one that is public facing) because it
+# contains stuff like passwords, API keys (which your
+# institution has paid for) etc.
+#
+# But in this case I'm giving the file a non-hidden
+# name and checking it into git because this is a demo.
+#
+# See FastAPI_example.py for how this is used.
+#
+# Set the database URL.
+DATABASE_URL=sqlite:///database/petdb
+#
