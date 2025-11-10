@@ -44,7 +44,7 @@ jobs:
       - name: Write trivial test database
         run: cd database/; ./uv_makeDB.sh; cd ../
 
-      - name: MAIN TEST : Run pytest unit tests with uv in verbose mode
+      - name: MAIN TEST which runs pytest unit tests with uv in verbose mode
         run: uv run pytest -v
 
 # Another job, same thing on macos
@@ -75,6 +75,6 @@ jobs:
       - name: Write trivial test database
         run: cd database/; ./uv_makeDB.sh; cd ../
 
-      - name: MAIN TEST : Run pytest unit tests with uv in verbose mode
+      - name: MAIN TEST which runs pytest unit tests with uv in verbose mode
         run: uv run pytest -v
 
