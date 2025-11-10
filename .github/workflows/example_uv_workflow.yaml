@@ -1,3 +1,10 @@
+# Workflow that runs unit tests at github
+# for multiple versions of python. Runs on
+# the latest ubuntu and macos. Uses uv.
+# Triggered on both push and pull.
+#
+# Niles Oien November 2025.
+
 name: uv pytest
 
 on:
@@ -9,6 +16,7 @@ on:
       - main
 
 jobs:
+  # The first job is for ubuntu.
   build-ubuntu:
     name: Test-ubuntu
     runs-on: ubuntu-latest
@@ -36,7 +44,7 @@ jobs:
       - name: Write trivial test database
         run: cd database/; ./uv_makeDB.sh; cd ../
 
-      - name: Run pytest unit tests with uv in verbose mode
+      - name: MAIN TEST : Run pytest unit tests with uv in verbose mode
         run: uv run pytest -v
 
 # Another job, same thing on macos
@@ -67,8 +75,6 @@ jobs:
       - name: Write trivial test database
         run: cd database/; ./uv_makeDB.sh; cd ../
 
-      - name: Run pytest unit tests with uv in verbose mode
+      - name: MAIN TEST : Run pytest unit tests with uv in verbose mode
         run: uv run pytest -v
-
-
 
