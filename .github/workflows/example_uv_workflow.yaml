@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  build:
-    name: Test
+  build-ubuntu:
+    name: Test-ubuntu
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,4 +38,37 @@ jobs:
 
       - name: Run pytest unit tests with uv in verbose mode
         run: uv run pytest -v
+
+# Another job, same thing on macos
+  build-mac:
+    name: Test-mac
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version:
+          - "3.12"
+          - "3.13"
+          - "3.14"
+
+    steps:
+      - uses: actions/checkout@v5 # Check out the repo
+
+      - name: Install uv and set the Python version
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Init uv
+        run: uv init --name FastAPI_example --description "An example of FastAPI" --bare .
+
+      - name: Package install
+        run: uv add -r requirements.in
+
+      - name: Write trivial test database
+        run: cd database/; ./uv_makeDB.sh; cd ../
+
+      - name: Run pytest unit tests with uv in verbose mode
+        run: uv run pytest -v
+
+
 
