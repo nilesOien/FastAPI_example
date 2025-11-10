@@ -8,15 +8,26 @@ on:
     branches:
       - main
 
+
+
 jobs:
-  Test:
+  build:
+    name: Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version:
+          - "3.10"
+          - "3.11"
+          - "3.12"
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-    - name: Set up Python with uv
-      uses: astral-sh/setup-uv@v1
+      - name: Install uv and set the Python version
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python-version }}
 
       - name: Init uv
         run: uv init --name FastAPI_example --description "An example of FastAPI" --bare .
