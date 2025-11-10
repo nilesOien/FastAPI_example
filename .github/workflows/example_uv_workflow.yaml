@@ -1,0 +1,35 @@
+name: uv pytest
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v1
+        with:
+          python-version: '3.13'
+
+      - name: Init uv
+        run: uv init --name FastAPI_example --description "An example of FastAPI" --bare .
+
+      - name: Package install
+        run: uv add -r requirements.in
+
+      - name: Write trivial test database
+        run: cd database/; ./uv_makeDB.sh; cd ../
+
+      - name: Run pytest unit tests with uv in verbose mode
+        run: uv run pytest -v
+
